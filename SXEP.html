@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=10.0">
+    <title>舐刑帝国·总体概述 - 深色动态背景版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0c0c1d;
+            --secondary-dark: #1a1a2e;
+            --accent-color: #6a5acd;
+            --accent-light: #9370db;
+            --text-light: #e6e6ff;
+            --card-bg: rgba(15, 23, 42, 0.85);
+            --section-bg: rgba(15, 23, 42, 0.7);
+            --highlight: #e94560;
+            --glow: 0 0 15px rgba(106, 90, 205, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+        }
+        
+        #particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            margin-bottom: 40px;
+            position: relative;
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(106, 90, 205, 0.3);
+            box-shadow: var(--glow);
+            margin-top: 30px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(106, 90, 205, 0.8);
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-light), #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: title-glow 3s infinite alternate;
+        }
+        
+        @keyframes title-glow {
+            0% { text-shadow: 0 0 10px rgba(106, 90, 205, 0.7); }
+            100% { text-shadow: 0 0 25px rgba(233, 69, 96, 0.8); }
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--glow);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(106, 90, 205, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(106, 90, 205, 0.9);
+            border-color: var(--accent-light);
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--highlight));
+            opacity: 0.7;
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: rgba(79, 70, 229, 0.15);
+            border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: var(--accent-light);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(106, 90, 205, 0.5);
+            border: 1px solid rgba(106, 90, 205, 0.5);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--accent-light), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: var(--accent-light);
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(106, 90, 205, 0.7);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+            padding-bottom: 20px;
+            text-shadow: 0 0 10px rgba(106, 90, 205, 0.7);
+            background: linear-gradient(90deg, var(--accent-light), #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+            margin-left: -2px;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: var(--section-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(106, 90, 205, 0.5);
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(106, 90, 205, 0.3);
+        }
+        
+        .timeline-content::after {
+            content: "";
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-light);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(106, 90, 205, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            background: var(--card-bg);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floating {
+            animation: floating 8s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content::after,
+            .timeline-item:nth-child(odd) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+    
+    <div class="container">
+        <header class="floating">
+            <h1>舐刑帝国·总体概述</h1>
+            <p class="subtitle">这是一个法律、文化和三观都为完全虚构的宇宙。其中有一个跨星系国家，名为帝国，占据了许多星系和星球，规模相当庞大。</p>
+        </header>
+        
+        <div class="card-grid">
+            <div class="card floating" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h2 class="card-title">帝国概况</h2>
+                </div>
+                <div class="card-body">
+                    <p>说是帝国，其实没有皇帝，它是由一个巨大的议会统治的。这个帝国是一个典型的脱产社会，绝大多数基础的工作都已由机器人替代，因此，公民们的生活基本上都集中在各种享乐当中。</p>
+                    <p>在这个帝国中，有一个被称为<span class="highlight">「小女孩（THE GIRLS）」</span>的群体，她们的地位是最低下、最受歧视的。</p>
+                    <p>她们的全称是<span class="highlight">「帝国人工女童（Imperial Architectural Girls）」</span>，并非自然出生，而是在专门的培育场所通过人工手段生出来的、专门为了供人取乐而设计的生物，只是被俗称为「小女孩」而已。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.4s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h2 class="card-title">小女孩的地位</h2>
+                </div>
+                <div class="card-body">
+                    <p>帝国宣称，这些小女孩天生是最低劣、最愚蠢、最顽劣、最无知、最肮脏的……甚至是一切负面词汇的综合。又因为她们不是人类，不配拥有人权、隐私权，所有自然人类都可以被视为她们上级人物。</p>
+                    <p>她们生活在持久的暴露之下，唯有软弱的性格和漂亮的外貌能为她们争取一丝被默许的怜爱。</p>
+                    <p>从出生那天，小女孩们的日常生活的所有细节就都会被全程记录，并且在全帝国网络中都能找到详细的相关资料作为留档。</p>
+                    <p>帝国的所有社会机构，都在文化推广和教育中强烈强调小女孩的低下地位，对小女孩全方位的刻意贬低成为全社会的共识。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.6s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h2 class="card-title">小女孩的生活</h2>
+                </div>
+                <div class="card-body">
+                    <p>小女孩们没有父母，她们在专门的抚养机构被统一养大，直到五岁时便会被卖出去。可能是卖给公民个人或者家庭，也可能是卖给各种有需求的社会组织和机构。总而言之，<span class="highlight">五岁到七岁</span>，是她们被售卖的最佳年龄段。</p>
+                    <p>不论是否被售卖，小女孩们都被法律强制规定要求全裸，并且尤其着重暴露<span class="highlight">屁股（Butt）</span>和<span class="highlight">屁眼（Butthole）</span>，所有人都已经习惯了这个规定的存在，小女孩们的意愿则从来都是被忽视的。</p>
+                    <p>格外注意，小女孩这两个部位必须被称为<span class="highlight">屁股和屁眼</span>，不可使用"臀部"和"肛门"。在英语中，则必须被称呼为<span class="highlight">Butt和Butthole</span>。</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">特殊规定</h2>
+        
+        <div class="card-grid">
+            <div class="card floating" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h2 class="card-title">清洁禁令</h2>
+                </div>
+                <div class="card-body">
+                    <p>帝国的小女孩被禁止在任何情况下清洁自己的屁眼，一切可能的清洁手段都被禁止——甚至于在外面活动了一整天，屁股缝里全是脏污，也必须保持屁眼脏兮兮臭烘烘的状态。</p>
+                    <p>甚至包括在拉屎之后，哪怕是腹泻拉稀也一视同仁。而且屁眼必须要有明显的臭味和屎渍，不能以任何方式遮臭或除臭，否则视同擅自清洁。</p>
+                    <p>为了保证这一点，法律还特别规定小女孩在外出时，不可以在普通公厕拉屎，必须使用特殊的专用厕所，这种厕所完全开放，而且全部是蹲式，以确保她们不能偷偷清洁屁眼。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.4s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h2 class="card-title">着装禁令</h2>
+                </div>
+                <div class="card-body">
+                    <p>根据如上描述，帝国规定小女孩不准穿任何遮挡身体的东西，也就是不能穿任何衣服，包括上衣、裙子、裤子、内裤和鞋袜。</p>
+                    <p>除此之外，必须全身保持如出生时一般的赤裸。因此小女孩们的全身乃至包括屁股、屁眼、大腿和下体部位都是暴露着的。</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">舐肛刑（Butthole Licking）</h2>
+        
+        <div class="card-grid">
+            <div class="card floating" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h2 class="card-title">刑罚概述</h2>
+                </div>
+                <div class="card-body">
+                    <p>针对小女孩，帝国会进行一种名为<span class="highlight">"舐肛刑（Butthole Licking）"</span>的处罚，每个小女孩都有可能会因为做错事而被实施这项刑罚，或者她们没有做错任何事，也会被毫无道理地实施这项刑罚——只要她们的主人想看，完全可以捏造罪名，反正她们无权申辩。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.4s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h2 class="card-title">执行过程</h2>
+                </div>
+                <div class="card-body">
+                    <p>"舐肛刑"的执行过程，是在经过帝国法庭（其实这个帝国法庭也并不是真正的法庭，而是表演性质的，只是为了拿小女孩取乐而设计的节目）审判后，将赤裸的小女孩从法庭押送到专门的受刑场所，并在那里将小女孩拘束起来，让她们暴露出自己的屁眼，并且无法挣扎。</p>
+                    <p>如此，在舐肛刑正式开始执行后，2名特殊的女性会进入行刑场所，对受刑的小女孩象征性地宣读执行舐肛刑的决定，然后俯下身，用她们的舌头和舌尖不断舔舐小女孩暴露的屁眼。</p>
+                    <p>被实施舐肛刑的小女孩，将会完全暴露自己的下体和屁眼。小女孩在被执行舐肛刑前，她的屁眼同样不会经过任何清洗，为的是确保舐刑人能够尝到并判断受刑小女孩屁眼的味道。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.6s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h2 class="card-title">刑罚周期</h2>
+                </div>
+                <div class="card-body">
+                    <p>舐肛刑会持续十天，每天八个小时。行刑前夜小女孩会在专用监狱内过夜，行刑后，小女孩也要在女童监狱内过夜，之后才可以回到抚养机构——被机器警察押送回去。</p>
+                    <p>行刑过程会在帝国内部网络中全程直播。</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">舐刑人（Licklady）</h2>
+        
+        <div class="card-grid">
+            <div class="card floating" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h2 class="card-title">身份与地位</h2>
+                </div>
+                <div class="card-body">
+                    <p>舐刑人虽然同样是女性，但她们是另一个层次的存在，与那些要被舔屁眼的小女孩完全不是一个概念。</p>
+                    <p>可以说，舐刑人是一个专为「舐肛刑」这一全民娱乐而诞生的明星职业。她们必须是帝国社会中真正的「女性」——她们是自然人类，是公民阶级。她们可以过着完全正常的生活，拥有一切权利，能够与男性公民结婚，生育后代。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.4s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h2 class="card-title">后代与传承</h2>
+                </div>
+                <div class="card-body">
+                    <p>若舐刑人生出儿子，则儿子会是帝国公民，若是生出女儿，则女儿会是预备役舐刑人。</p>
+                    <p>而社会对舐刑人的年幼女儿（即是预备役舐刑人）的称呼是<span class="highlight">「小女士（Little lady）」</span>，而不是「小女孩」。</p>
+                    <p>「小女士」身为舐刑人的女儿，地位天生高于「小女孩」。虽然她们在幼年时也必须全裸，但她们拥有除了穿衣服以外的一切人权，还可以打扮自己，当然也可以清洁屁眼。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.6s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h2 class="card-title">职业态度</h2>
+                </div>
+                <div class="card-body">
+                    <p>舐刑人并不会对帝国的规则有任何抗拒，相反，她们无一不是对「舔小女孩屁眼」一事充满了热爱，因热衷于品尝小女孩屁眼的味道而成为舐刑人，被舔的小女孩屁眼越臭、越脏、越恶心，在舐刑人看来就越是值得喜爱。</p>
+                    <p>故此，她们舔舐的技巧十分多变，并且每一名舐刑人都有自己的特色。</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">帝国法案体系</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">羞辱惩罚法案</h3>
+                    <p>帝国为了确保舐肛刑的执行，将小女孩在生活中所犯的任何错误，甚至所做的任何事都进行全方位的恶意化，也就是说，在帝国看来，小女孩做什么都是错的。进行"舐肛刑"的必要性被帝国严格强调，帝国认为，通过这种惩罚，可以有效地羞辱她们。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">定义权法案</h3>
+                    <p>帝国的宣传从来都是围绕着"小女孩是脏污不洁的"这一主题展开。当然，大家都知道小女孩之所以脏污不洁是因为帝国禁止她们清洁和穿衣服，但小女孩并没有辩解的权利。大家说她们是怎样，她们就必须得是怎样，她们要接受帝国对她们的定义，并拥护它。她们当然会觉得委屈，但这就是帝国的目的。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">谦逊教育体系</h3>
+                    <p>女童必须在专门的教育机构学习，唯一的课程就是"礼仪与谦逊"，其中包含如何忍受并接受"舐肛刑"的训练，教导小女孩们即使面对极度侮辱也要保持沉默与顺从，以此来培养她们对于权力的绝对服从精神。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">舐刑人资格认证</h3>
+                    <p>「小女士」在正式接过舐刑人衣钵前，需要经过严格的培训，除了具备高超的舌技之外，还需通过专业的考试，强调这些舐刑人在舔小女孩屁眼的同时，还能表现出某种专业的态度，或者对小女孩的屁眼明确喜爱的态度。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">屁眼评分系统</h3>
+                    <p>受刑小女孩的屁眼味道和外观将被舐刑人根据一套复杂的评分标准评估，并作为评价其所属抚养机构荣誉和地位的标准之一。成绩优秀的小女孩的所属机构会得到奖励，从而进一步加深对这一行为的制度化和合理化。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">公开直播与点赞机制</h3>
+                    <p>帝国内部网络平台对"舐肛刑"行刑全程直播的同时，还设有互动功能，鼓励观众实时点赞、评论甚至打赏，借此营造全民狂欢社会氛围。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-title">屁眼终极原则</h3>
+                    <p>需要注意的是，帝国针对小女孩所设计的一切政策、一切法律，乃至每一个细节，都围绕着「小女孩的屁眼」这一概念展开。所有对她们灌输的观念都是手段，帝国在这一领域要达到最终极目的，便是「所有人都可以随心所欲地玩弄小女孩的屁眼」。</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">屁眼奴隶（Butthole Slave）</h2>
+        
+        <div class="card-grid">
+            <div class="card floating" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h2 class="card-title">成为屁眼奴隶</h2>
+                </div>
+                <div class="card-body">
+                    <p>而到了七岁还没有被成功卖出去的小女孩，则会被抚养机构送到专门的收容中心，在那里被贬为<span class="highlight">「屁眼奴隶（Butthole Slave）」</span>。</p>
+                    <p>「屁眼奴隶」会被集中起来统一管理，装进为她们量身打造的暗箱中，只有屁股撅着从暗箱的洞中露出来。被装在暗箱里时，屁眼奴隶的肢体会被严格地固定，她们永远不能动弹。所有营养都由暗箱里的机器自动供给，而她们被装入暗箱后，将会进行二次售卖。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.4s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h2 class="card-title">奴隶生活</h2>
+                </div>
+                <div class="card-body">
+                    <p>仍然没有找到买家的屁眼奴隶，将留在屁眼奴隶收容机构中，在那里24小时不间断地被舔屁眼——白天给舐刑人当做练手工具，晚上由机器舌头继续。</p>
+                    <p>屁眼奴隶的屁眼必须被专门扒开，呈现圆洞状态，以方便舔舐。也就是说，屁眼奴隶的屁眼是永远不被允许合上或夹紧的。用于扒屁眼的全自动器械因此很受欢迎。</p>
+                    <p>屁眼奴隶的生活是相当单调的，她们除了待在暗箱里被舔屁眼外，不再有任何可做的事情，可以说，作为屁眼奴隶，她们与外面世界的连接，除了屁眼之外再无它物了。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.6s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-skull"></i>
+                    </div>
+                    <h2 class="card-title">刑期与终结</h2>
+                </div>
+                <div class="card-body">
+                    <p>屁眼奴隶的刑期至少要持续到她们15岁的时候——屁眼奴隶刚刚被装进暗箱里时还是幼小的女孩，而刑期结束时，已经是少女了。</p>
+                    <p>当然，除了公民阶级女性，帝国不会保留任何超过15岁的女孩。屁眼奴隶的刑期结束是意味着她们的屁眼已经失去了被舔的价值，这并不代表她们会被释放，而是会被集中起来统一处理掉。</p>
+                    <p>这一手段并不仅仅用于被收容的屁眼奴隶。已经被售卖的小女孩或者屁眼奴隶，在满15岁之后，也会被帝国回收并处理掉。最常用的处理手段是送回收容中心，十倍强度舔屁眼，直到舔死。</p>
+                    <p>而那些被处理掉的女孩的主人，则会得到一个新的5岁小女孩作为补偿。</p>
+                    <p>而如果屁眼奴隶在服刑期间仍然敢反抗对她们屁眼的舔舐，她们将会立刻以更残忍的方式被处决。</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">屁眼地狱（Butthole Gehenna）</h2>
+        
+        <div class="card-grid">
+            <div class="card floating" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h2 class="card-title">死后归宿</h2>
+                </div>
+                <div class="card-body">
+                    <p>如果一个女孩死亡——不论是身为普通女孩被意外杀死，还是身为屁眼奴隶，在刑期结束后或是在被处决后，她们的灵魂都将经由专业的引渡师处理，被送往专为她们设计的<span class="highlight">「屁眼地狱（Butthole Gehenna）」</span>。</p>
+                    <p>屁眼地狱是一个专供小女孩死后居住的地方，连空气都满是小女孩们屁眼散发出的臭味。在那里，她们将被塑造一个永远无法长大，永远身为小女孩的肉体形态。</p>
+                    <p>这里的酷刑就将不再只是简单的舔屁眼，而是各种花样无穷的惩罚屁眼、折磨屁眼的方式。小女孩们将在这里被继续折磨屁眼，永远被折磨屁眼，永远永远、一刻不停、永无尽头地被折磨屁眼。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.4s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-archway"></i>
+                    </div>
+                    <h2 class="card-title">地狱环境</h2>
+                </div>
+                <div class="card-body">
+                    <p>屁眼地狱作为永恒收容被处死的小女孩的地方，是一个几乎无限大的世界，早在远古时代就由帝国的历代神秘学家开始建设，具体时间几乎已经不可考了。这里位于异空间，经过无数年的积累，这里的大部分地方都堆满了小女孩们拉的臭屎和屁眼分泌物，而小女孩们就在这些地方被舔屁眼。</p>
+                    <p>屁眼地狱的建筑和结构多种多样，魔法和神秘力量无处不在，还养着种种专用于折磨小女孩屁眼的小生物，譬如虫子之类。不过，不论是什么，无一例外都是围绕着舔屁眼和折磨屁眼而设计的。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.6s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <h2 class="card-title">永恒折磨</h2>
+                </div>
+                <div class="card-body">
+                    <p>小女孩死后，将会在这里以一种奇特的方式被重塑一个不朽的肉体，停留在她们外表最可爱的时候，不论过多少年也不会再长大——可以说，屁眼地狱虽然恶心，但里面的小女孩都相当可爱。与此同时，她们在屁眼地狱里也同样必须全裸——和生前一样，可以说是从生到死都光屁股。</p>
+                    <p>接下来，她们就将以各种超脱现实的方式被折磨屁眼，不是十年、不是百年、不是千年万年，而是永远永远。她们的屁眼也不会像活着的时候那样麻木和变得迟钝，而是会永远保持屁眼最嫩最臭的状态，永远清晰感受被虐待屁眼的极致"快感"，而且，屁眼也不会变得松弛或受伤，一旦被虐得过度，就会自动恢复原状，然后继续被虐。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 0.8s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h2 class="card-title">地狱生活</h2>
+                </div>
+                <div class="card-body">
+                    <p>屁眼地狱不像现实世界那样必须高效利用空间。反正时间是无限的，不管被折磨多久都还有空余时间——于是，小女孩们其实并不一定要被拘束起来。她们可以在屁眼地狱里自由走动、互相社交，只要她们的屁眼必须保持一直被折磨虐待的状态，比如被虫子钻来钻去或者塞个刑具什么的——想玩耍，没问题，忍得住就行。</p>
+                    <p>虽然玩耍散步也不见得是多么心旷神怡的体验，毕竟屁眼地狱里的场景处处都是别出心裁的恶心，不过，只要习惯了就好。小女孩们甚至可以像玩沙盒游戏一样在屁眼地狱里生活，搭伙过日子、建点房子安家、搞自己的社区，甚至自己挖个新区域出来，正好给帝国神秘学家省了工作量。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 1.0s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h2 class="card-title">刑罚选择</h2>
+                </div>
+                <div class="card-body">
+                    <p>也许是帝国想营造点不一样的刺激，小女孩们在屁眼地狱里还可以有选择权，譬如，小女孩们每天接受的屁眼折磨可以自选，屁眼地狱提供一份几乎无限多的清单，还可以选是拘束固定受刑还是自由带刑具走动。</p>
+                    <p>具体的受刑区域也可以自选，想被泡在屎海里面都行，反正不呼吸也憋不死，几万年都不在话下。不喜欢还能随时换，真要细化，可能有几十亿种也说不定呢，每一条还都能专门点开看详细信息和评价。</p>
+                    <p>唯一的强制条件是不能不受刑，必须得选，总之屁眼24小时不能闲着，不选就随机分配一个。活着，如果不知道选什么，可以直接说喜好和需求，屁眼地狱会自动推荐合适的选项。刑罚每天可以选多次，还可以多种刑罚同时进行，次数不限、种类不限，反正屁眼地狱里的刑罚多得数不过来，随便选也体验不完。</p>
+                </div>
+            </div>
+            
+            <div class="card floating" style="animation-delay: 1.2s;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h2 class="card-title">地狱社会</h2>
+                </div>
+                <div class="card-body">
+                    <p>总而言之，无数小女孩扎堆受刑、扎堆玩耍、扎堆过日子，屁眼地狱总体来说是个相当热闹的地方。</p>
+                    <p>与此同时，屁眼地狱的场景还可以被神秘学家复现出来，直播给现实世界的人看。屁眼地狱和现实世界的时间流动是相互独立的，现实世界的人们可以先给一个小女孩设置固定跟踪视角，随后拉动进度条，就能直接看到这个小女孩在屁眼地狱里被虐了几千几万年之后会是什么样子、什么反应，也可以直接拉回到几万年前，看那些历史书上记载着的、曾经试图反抗的小女孩们刚被送入屁眼地狱时有多么害怕。</p>
+                    <p>当然，由于屁眼地狱的场景实在过于恶心，也有些人会更偏爱观看现实世界的舔屁眼活动，而不太关注屁眼地狱。</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>帝国社会结构可视化 - 这是一个法律、文化和三观都为完全虚构的宇宙</p>
+            <p>注意：本可视化页面仅用于展示虚构宇宙设定，不代表任何真实立场或价值观</p>
+        </footer>
+    </div>
+
+    <script>
+        // 粒子背景动画
+        const canvas = document.getElementById('particles-bg');
+        const ctx = canvas.getContext('2d');
+        
+        // 设置canvas尺寸为窗口大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // 粒子数组
+        const particles = [];
+        const particleCount = 150;
+        
+        // 粒子类
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+                this.color = `rgba(${Math.floor(Math.random() * 100 + 100)}, 
+                                ${Math.floor(Math.random() * 100 + 50)}, 
+                                ${Math.floor(Math.random() * 255)}, 
+                                ${Math.random() * 0.5 + 0.2})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // 边界检查
+                if (this.x > canvas.width || this.x < 0) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.speedY = -this.speedY;
+                }
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // 添加光晕效果
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(106, 90, 205, 0.05)`;
+                ctx.fill();
+            }
+        }
+        
+        // 创建粒子
+        function initParticles() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        // 连接相近的粒子
+        function connectParticles() {
+            const maxDistance = 100;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(106, 90, 205, ${0.2 * (1 - distance/maxDistance)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // 动画循环
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 添加背景渐变
+            const gradient = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 0,
+                canvas.width/2, canvas.height/2, Math.max(canvas.width, canvas.height)/2
+            );
+            gradient.addColorStop(0, 'rgba(10, 10, 30, 0.8)');
+            gradient.addColorStop(1, 'rgba(5, 5, 15, 0.9)');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 添加中心光晕
+            const centerGradient = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 0,
+                canvas.width/2, canvas.height/2, 300
+            );
+            centerGradient.addColorStop(0, 'rgba(106, 90, 205, 0.3)');
+            centerGradient.addColorStop(1, 'rgba(106, 90, 205, 0)');
+            
+            ctx.fillStyle = centerGradient;
+            ctx.beginPath();
+            ctx.arc(canvas.width/2, canvas.height/2, 300, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // 更新和绘制粒子
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            
+            connectParticles();
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // 窗口大小调整处理
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles.length = 0;
+            initParticles();
+        });
+        
+        // 初始化
+        initParticles();
+        animate();
+        
+        // 添加鼠标交互效果
+        canvas.addEventListener('mousemove', function(e) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            // 在鼠标位置添加临时粒子
+            for (let i = 0; i < 3; i++) {
+                particles.push(new Particle());
+                particles[particles.length - 1].x = mouseX;
+                particles[particles.length - 1].y = mouseY;
+                particles[particles.length - 1].size = Math.random() * 2 + 1;
+                particles[particles.length - 1].speedX = Math.random() * 4 - 2;
+                particles[particles.length - 1].speedY = Math.random() * 4 - 2;
+            }
+            
+            // 限制粒子数量
+            if (particles.length > particleCount * 1.5) {
+                particles.splice(0, 5);
+            }
+        });
+    </script>
+</body>
+</html>
