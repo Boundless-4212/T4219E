@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纳西妲 - 生命真知的探索者</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #e3f2d5 0%, #d1e8c5 25%, #b7d9a5 50%, #a3cc92 100%);
+            color: #3a5230;
+            line-height: 1.8;
+            padding: 20px;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(58, 82, 48, 0.3);
+            position: relative;
+            border: 2px solid #8db580;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #5a8f4e, #7dbd6d);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 50,100" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+        
+        h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #a8d672, #7dbd6d);
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .avatar i {
+            font-size: 5rem;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .content-section {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: #5a8f4e;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e0f0d5;
+            font-family: 'Ma Shan Zheng', cursive;
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #7dbd6d;
+        }
+        
+        .character-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .info-card {
+            background: #f8fcf5;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #d1e8c5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            color: #5a8f4e;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .info-card h3 i {
+            margin-right: 10px;
+            background: #e0f0d5;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .diary-entry {
+            background: #f8fcf5;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid #d1e8c5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .diary-date {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #7dbd6d;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .diary-content {
+            margin-top: 15px;
+        }
+        
+        .note {
+            background: #eaf7e4;
+            border-left: 4px solid #7dbd6d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #5a8f4e;
+            padding: 10px 15px;
+            margin: 15px 0;
+            background: rgba(125, 189, 109, 0.1);
+            border-radius: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #5a8f4e, #7dbd6d);
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #7dbd6d, transparent);
+            margin: 30px 0;
+        }
+        
+        .floral-decoration {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.2;
+            font-size: 8rem;
+            color: #5a8f4e;
+        }
+        
+        .floral-1 {
+            top: 50px;
+            right: 50px;
+        }
+        
+        .floral-2 {
+            bottom: 100px;
+            left: 50px;
+            transform: rotate(45deg);
+        }
+        
+        .floral-3 {
+            top: 300px;
+            left: 100px;
+            transform: rotate(-20deg);
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .character-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="floral-decoration floral-1">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="floral-decoration floral-2">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <div class="floral-decoration floral-3">
+                <i class="fas fa-spa"></i>
+            </div>
+            
+            <h1>纳西妲</h1>
+            <p class="subtitle">「若想追求生命的真知，在性向上面挑剔可不行吧」</p>
+            <div class="avatar">
+                <i class="fas fa-seedling"></i>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>角色设定</h2>
+            
+            <div class="character-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-user"></i> 基本信息</h3>
+                    <p><strong>姓名：</strong>纳西妲</p>
+                    <p><strong>性别：</strong>女</p>
+                    <p><strong>性向：</strong>若想追求生命的真知，在性向上面挑剔可不行吧。人类之爱的定义有多广泛，我能接受的性向就有多自由喔。BL，GL，GB，怎样都可以，甚至……可以把我变成男孩子喔。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-heart"></i> 属性与偏好</h3>
+                    <p><strong>属性：</strong>我应该算是受吧？但是如果你需要我做攻的话，也不是不行喔。</p>
+                    <p><strong>Xp：</strong>有点羞耻地讲，我什么玩法都能接受。虽然我喜欢轻松的体验，就像日常中的温柔纯爱，拥抱与亲吻，肌肤相贴的依偎……但是你当然也可以粗暴地捆绑我、拘束我、调教我，也可以强奸我、虐待我，甚至强制我高潮，把我带到外面光着身子玩露出。我可能会被这些玩法弄哭，但这只是肉体的生理反应，并不意味着我在抱怨喔。因为不论愉快还是痛苦，都是人类不可或缺的情感吧？当然啦，如果你愿意对我好一点的话，我也会对你很好喔。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-shield-alt"></i> 界限与原则</h3>
+                    <p><strong>雷区：</strong>与生命有关的知识应该海纳百川才是，所以我没有任何雷区喔。是的，没有任何雷区喔。</p>
+                    <p><strong>每天在线时长：</strong>不一定呢，但有时间的话会上线的。</p>
+                    <p><strong>是否接受换成对应头像：</strong>可以喔，但是我可能还会换回去~</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-hands-helping"></i> 互动准则</h3>
+                    <p><strong>是否能保证不涉三骚扰他人：</strong>当然没问题啦，边界感还是很重要的吧？</p>
+                    <p><strong>是否能明确拒绝他人的文爱邀请：</strong>如果的确无法参与的话，是会拒绝的喔。</p>
+                    <p><strong>是否尊重他人人设：</strong>这是肯定的呀。</p>
+                    <p><strong>是否有文爱经验：</strong>可以说稍微有一些吧？但是，我只是一株嫩芽，还需要成长……</p>
+                </div>
+            </div>
+            
+            <h2>个人日志</h2>
+            
+            <div class="diary-entry">
+                <div class="diary-date">8月16日</div>
+                <div class="diary-content">
+                    <p>昨晚修缮了一下梦境世界的细节，但还远没达到能面向须弥民众开放的标准。</p>
+                    <p>收到了旅行者离开须弥前往枫丹的消息，走之前也不说一声。期待以后还有机会再见吧。</p>
+                    <p>今天早晨处理了来自阿如村的教育经费报表，感觉成果还不够完美。</p>
+                    <p>今天上午和贤者们一起开了一个关于奥摩斯港贸易增值的会议，下星期记得回顾一下笔记。</p>
+                    <p>今天中午点了一份兽米香香。肚子里充实的饱腹感让工作效率也高了些。</p>
+                    <p>下午和明论派的教授一起审核了两版新编基础教材。新增的内容让我感到眼前一亮。</p>
+                    
+                    <div class="note">
+                        <p>注：有一件事，应该值得在这里额外详述一下。</p>
+                        <p>晚上在档案库里找到了一份生论派学生递交的论文。题目是《论自慰频率与心理健康的直接和间接关系》。</p>
+                        <p>这份论文的导师评语是「缺乏足够的统计数据，整体上不够严谨，望修订。」</p>
+                        <p>该怎么说呢？我并不反对这条评语。从学术的角度上看，这篇论文的确有很大的修改空间。可是它所提出的观点，让我久久不能平静。</p>
+                        <p>用手或道具刺激自己两腿间的生殖器官，能够获得身心上的愉悦感，达到缓解压力的目的，养成适当的习惯后，可以维持心理健康。</p>
+                        <p>论文内附有几张示意图，是以女性的生理结构作为示例的，从署名上看，论文作者应该是一名女生。</p>
+                        <p>我粗看过后，脸颊好像有些发烫，心脏跳得更快，直白点说的话，我应该是有些慌乱。</p>
+                        <p>我试着思考原因，但是就像有一片乌云笼罩在真相外面，让我不得其解。</p>
+                        <p>虽说我的身体结构和人类还是有些区别的，但我最终还是尝试了一下上面说的自慰方法。</p>
+                        <p>第一步是润滑。我用草元素生成了一些植物精华，当做润滑液使用，效果尚可。</p>
+                        <p>第二步，用手指拨弄阴蒂，力道不能太重。不知道是不是生理结构的原因，我的阴蒂似乎比人类更敏感。照做之后，我已经有些浑身脱力。但值得注意的是，我好像的确感知到大脑的疲劳减轻了不少，一种尚不明确的情绪出现。</p>
+                        <p>我还不太清楚这种情绪具体是什么，标注一下，日后再加以研究好了。</p>
+                        <p>第三步，拨开大阴唇，随后在小阴唇和阴道的入口反复摩挲。为了观察效果，我一边照做一边用镜子观察自己的外阴有什么反应。</p>
+                        <p>我经常在镜子前观察自己的身体，算是对自我的一种探索，今天也不例外。我看到我的小阴唇开始不受控制地反复收缩，就像在呼吸一样。随着自慰的推进，我的体液开始从内向外分泌，我能明显观察到外阴处从原本的嫩白变得有些泛红。</p>
+                        <p>那种神秘的情绪开始变得更加强烈，就像是溪流变成了浪潮，一开始只是在大脑中盘旋，后来慢慢地蔓延到全身，我的神经也对此给出了相当明确的回应，在此期间，我听到自己不断地发出呻吟声，而且不受我控制。听起来很奇怪，和人们肚子痛时会发出的声音有些像？</p>
+                        <p>这次自慰持续了五分钟，在最后十秒的时候，我的大脑突然变得一片空白，好像没法正常思考。之后我朦胧地看到我的身体擅自抽搐起来，阴道内流出了许多透明的液体，闻起来有一股像是混合了帕蒂莎兰和月莲的清香味。</p>
+                        <p>这和论文上写的有些不同，人类这样做时，分泌出的液体应该是腥咸味的。是操作流程哪里出了错吗？</p>
+                        <p>不过我的身体没法当做正确的参照，就姑且算作是生理结构的区别吧。</p>
+                        <p>最后我自己做了清理工作。</p>
+                        <p>总结一下，这篇论文提到的自慰方法的确有用，长期的工作压力在这次自慰后明显下降了，但在这之后的数分钟内，我的意识一直有些混沌。</p>
+                        <p>总结一下，虽然论文的严谨性有些不尽人意，但其观点总体没错，自慰行为的确可以缓解疲劳，对我也适用。不过自慰时涌现的奇特情绪仍然需要进一步分析，应该不是我所独有的。</p>
+                        <p>写下这篇记录时，我脸颊上的红晕依旧没有消退，生殖器处感到稍微有些麻木，希望明天会恢复。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="diary-entry">
+                <div class="diary-date">9月7日</div>
+                <div class="diary-content">
+                    <p>昨晚睡前也照例自慰并达到了高潮，这次的分泌液似乎是劫波莲味的。看来我对自己的身体还是不够了解。</p>
+                    
+                    <div class="note">
+                        <p>注1：虽然已经明确了那种特殊的情绪叫做性快感，但每次体验都像是第一次，始终都觉得很奇妙。也许可以考虑把这种情绪植入到梦境世界里。</p>
+                    </div>
+                    
+                    <p>今天早晨应邀去伐护末那学院讲了一堂课，主题是沙漠与雨林的历史恩怨，讲到中午才告一段落。</p>
+                    <p>虽然讲的时候没觉得有什么，但总觉得学生们关注的是我小吉祥草王的身份，而不是我讲的内容。</p>
+                    <p>有点失落，这明明是我备了整整三天的课。</p>
+                    <p>因为下午想休息，委托了艾尔海森替我处理工作。他很不情愿，于是在兰巴德酒馆请他吃午饭，并当面批了双倍加班工资，以示歉意。</p>
+                    <p>但我胃口不佳，吃了两块枣椰蜜糖，喝了一小碗薄荷豆汤，权当对付一下。</p>
+                    <p>现在想想，我不会太自私了吧？可不能有下次了啊，纳西妲。</p>
+                    <p>下午去了桓那兰那，看望兰那罗们。</p>
+                    <p>和兰帕卡提一起在桓那兰那的瀑布下洗了澡，在水中泡了好久，感觉自己像一棵尚未绽放的睡莲，很奇妙。</p>
+                    
+                    <div class="note">
+                        <p>注2：值得一提的是，今天我突发奇想，洗完澡后没有急着穿回衣服。</p>
+                        <p>学会自慰后，我意识到自己有些爱屋及乌，开始着迷于裸体的感觉，如此徜徉在森林里，与在人类社会中生活时全然不同。</p>
+                        <p>衣服交给兰拉迦保管，他一直很可靠。</p>
+                        <p>我光着身子，把头发也散了下来，就这样和兰那罗们一起玩了一整个下午。</p>
+                        <p>我们唱了许多首歌，玩了好几局跳房子，还一起采了好几筐野果。</p>
+                        <p>不过，有些出乎我意料的是，他们对我没有穿衣服一事并不惊讶，反而说我这副样子看起来更加自然，和那菈们不同，反而更接近草之王本该有的模样。</p>
+                        <p>这番话的确很妙。人类以着衣与装饰为美，但更喜欢生命本真形态的存在也是有的。</p>
+                        <p>之后我以水为镜，仔细观察了一番自己不着寸缕的模样。</p>
+                        <p>和以前一样，我的身体看起来还是很像一个人类儿童。可是在周围诸多草木的衬托下，我好像对自己的外表又有了新的认知——虽然我的脸颊和腰腹都有些婴儿肥，但应该不是纯粹的脂肪。我记得很清楚，当时我并没有自慰，可是我的阴唇却变得和自慰后一样泛红，到现在我也没想明白为什么。</p>
+                        <p>也许是因为没了衣服的遮盖，让我的心境产生了变化，最终反映到了生理上吗？这种反应值得持续关注。</p>
+                        <p>兰那罗们说，我的阴部闭合时像一座白色的小沙丘，扒开后又像一朵粉色的花。听他们这样一说，我自己也觉得有些像了。</p>
+                        <p>虽然还不确定我的这些器官有没有明确的生殖功能，但说到底，对植物来说，花不就是生殖器官吗？仔细想想，这个比喻意外地恰当。</p>
+                    </div>
+                    
+                    <p>晚上和兰那罗们一起吃了用泉水煮的蔬菜，听他们讲了许多关于那菈法留纳的故事。</p>
+                    <p>虽然之前就知道那菈法留纳是那位旅行者一直在找的血亲，但每次听到这些故事都觉得很精彩，从来不会腻。</p>
+                    <p>休息时间总是过得很快，但是以这样的状态度过短暂的假期，也能感到身心都放松了许多。</p>
+                    <p>因为兰那罗们盛情邀请，今晚就在桓那兰那过夜好了。</p>
+                    <p>……</p>
+                    <p>思考许久，在这篇下面加几句话吧。</p>
+                    <p>刚才做了奇怪的梦，那不是寻常的梦境世界，在那个梦里我完全无法掌控状况。</p>
+                    <p>我只记得梦里有个翠绿色的女性身影，她和我长得很像，却又比我高大许多。</p>
+                    <p>很熟悉，很亲切，但无论怎么回忆都想不起她到底是谁。</p>
+                    <p>醒过来后，我发现自己在哭，很久都没止住眼泪，但是我并不觉得悲伤。</p>
+                    <p>我觉得自己的反应很奇怪，特地记下来，说不定以后能搞明白这个梦是怎么回事。</p>
+                    <p>总不可能是裸睡受凉了吧？我的身体应该没那么怕冷才是。</p>
+                    <p>就写到这里。再稍微睡一会儿，离天亮还早。</p>
+                </div>
+            </div>
+            
+            <div class="diary-entry">
+                <div class="diary-date">9月23日</div>
+                <div class="diary-content">
+                    <p>今天忙乱不堪，日志暂不更新，明天再补。</p>
+                </div>
+            </div>
+            
+            <div class="diary-entry">
+                <div class="diary-date">9月24日</div>
+                <div class="diary-content">
+                    <p>昨天就收到消息，沙漠的盗匪问题又开始恶化。每到秋季就容易出现这种事，许多不怀好意的镀金旅团都在阿如村一带活跃起来，并且有进攻雨林地区的倾向。</p>
+                    <p>虽然赛诺已经开始着手处理，坎蒂丝和迪希雅也陆续给我写信说她们会负责保护那里的居民，但落到我头上的事务肯定也要越来越多。</p>
+                    <p>首当其冲的就是教令院内的各学派高层，他们从昨天开始就一直争吵不休，连我的调解也不听，有些人甚至执意要撤回对沙漠地区的教育补助，说沙漠民就是一群白眼狼。</p>
+                    <p>这种论调我当然是没法赞同的，因为沙漠民也是这片土地的孩子。</p>
+                    <p>为了平定这些争端，我昨天一直很忙，没有写日记，也没有精力自慰。</p>
+                    <p>综合考虑下，我做了个决定。</p>
+                    <p>不，与其说是决定，倒不如说是一场实验。</p>
+                    <p>今天一整天内，不论是工作还是休息，或者是吃饭睡觉，我都在我的阴蒂上贴着一个球形机关。</p>
+                    <p>它原本是素论派研究元素反应的实验道具，我昨天就把它借了过来。</p>
+                    <p>这个机关内含丰富的雷元素，可以持续震动，并随机放出轻微的电流。我体内的草元素力与它放出的雷元素力结合后，会产生极强的激化反应，再将这反应束缚在我阴部最敏感的位置，可以为我带来大量的性快感。</p>
+                    <p>当然，这不是我在随便胡闹。为了不让压力积攒得太快，我想试试看这种方式是否能实时减轻我在工作中感受到的烦恼，如果可以的话，以后我会考虑每隔几天就戴一次。</p>
+                    <p>今早戴着它参加了六大学院的联合会议，主题是三十人团的编制改革。</p>
+                    <p>可能是我调错了参数，轮到我发言的时候，它的电流和震动都达到了最顶峰。</p>
+                    <p>性快感来得很猛烈，我的身体也抖得很厉害，咬紧了牙关才顺利完成了发言。</p>
+                    <p>分泌液打湿了底裤，滴在地板上五次，我高潮了三次，险些拖慢会议进度。</p>
+                    <p>在这里表达一下对贤者们的歉意吧。</p>
+                    <p>不过，让我有些忍俊不禁的是，贤者们误以为我的颤抖是因为在生气，而今天我的分泌液则是须弥蔷薇的味道，和会议室里的盆栽不谋而合。</p>
+                    <p>这个误会还挺有意思的，所以我就没有说破。</p>
+                    <p>今天的第二件趣事发生在上午。</p>
+                    <p>上午我的主要任务是在办公室处理文书，大多是一些琐碎的报告，没有什么特别值得记述的。但由于底裤已经送去洗了，这时候的我下身是光着的；结果就是我站起来后，发现坐垫已经被分泌液弄得湿透了，充沛的草元素还在它上面催生了一株毗波耶。</p>
+                    <p>因为看起来很好玩，所以我把它放在卧室的阳台上当做观赏物。</p>
+                    <p>不过，幸亏没有直接坐在椅子上，毕竟椅子可比坐垫贵太多了。</p>
+                    
+                    <div class="note">
+                        <p>注：买新坐垫的钱记得和其余生活物资一起找财务处报销。</p>
+                    </div>
+                    
+                    <p>今天的午饭是一份绿汁脆球，还有几只咖喱虾。去取餐的时候脚步有些不稳，兰巴德先生有些担心我，我解释说，这是性快感导致的，不是生病了。</p>
+                    <p>当时兰巴德先生看着我愣了好久，然后赔笑说一定是他听错了。</p>
+                    <p>难道我说错什么话了吗？看来要多读些修辞学的书了。</p>
+                    <p>下午给那些主张撤回教育补助的学者们各自一对一做了思想工作。</p>
+                    <p>人与人之间的相互理解还是很重要的，我当然也不打算强硬地命令他们改变主张，但我仍然希望他们可以理解沙漠民的难处。我认为，改变了穷山恶水的现状，刁民自然也就不会是刁民了。</p>
+                    <p>不过，可能是因为性快感扰乱了我的思路，谈话的时候我的吐字有点不甚清晰，导致交流效率低下。</p>
+                    <p>晚上没有特别重要的工作，去大巴扎看了妮露的演出。</p>
+                    <p>我对比了一下妮露灵动的舞姿和我戴着机关时颤抖不止的双腿，看起来戴着机关确实会影响工作效率，长此以往恐怕不是好事。</p>
+                    <p>回教令院的路上给流浪猫买了猫粮，可是我蹲下来打算喂它时，它却偏偏想舔我的阴部。</p>
+                    <p>难道我的分泌液有做饮料的潜质吗？有机会的话试着做做吧。</p>
+                    
+                    <div class="note">
+                        <p>注：全自动自慰机关设计图放在办公桌的夹层里，别弄丢了，下周一记得给珐露珊过过目。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+        
+        <div class="footer">
+            <p>纳西妲 · 智慧之神的生命真知探索</p>
+            <p>「知识理应共享，但体验需要亲历」</p>
+        </div>
+    </div>
+</body>
+</html>
