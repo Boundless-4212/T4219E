@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="我的第一个GitHub Pages网站">
+    
+    <!-- 关键SEO标签 -->
+    <title>欢迎来到我的网站 | GitHub Pages</title>
+    
+    <!-- 现代CSS样式 -->
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+        
+        .github-btn {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        
+        .github-btn:hover {
+            background: #444;
+            transform: scale(1.05);
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+    
+    <!-- 添加网站图标 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+    <!-- 网站头部 -->
+    <header>
+        <h1>✨ 我的 GitHub Pages 网站</h1>
+        <p>通过 GitHub Pages 部署的静态网站</p>
+        
+        <nav>
+            <a href="#home">首页</a>
+            <a href="#about">关于</a>
+            <a href="#features">功能</a>
+            <a href="https://github.com/your-username/your-repo" target="_blank">源代码</a>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- 主要内容区 -->
+        <section id="home">
+            <div class="card hero">
+                <h2>🚀 成功部署！</h2>
+                <p>恭喜！您的网站已通过 GitHub Pages 成功部署到互联网。</p>
+                <p>这个页面包含：</p>
+                
+                <div class="features">
+                    <div class="card">
+                        <h3>📱 响应式设计</h3>
+                        <p>自动适应手机、平板和电脑屏幕</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🎨 现代UI</h3>
+                        <p>简洁美观的卡片式布局与交互动画</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>⚙️ 开箱即用</h3>
+                        <p>无需额外配置，直接部署生效</p>
+                    </div>
+                </div>
+                
+                <a href="https://github.com/" class="github-btn" target="_blank">
+                    访问 GitHub
+                </a>
+            </div>
+        </section>
+        
+        <!-- 侧边栏 -->
+        <aside>
+            <div class="card">
+                <h2>📝 使用指南</h2>
+                <p>1. 将本文件保存为 <code>index.html</code></p>
+                <p>2. 上传到GitHub仓库根目录</p>
+                <p>3. 启用GitHub Pages功能</p>
+                <p>4. 访问 <code>username.github.io</code></p>
+                
+                <h3 style="margin-top: 1.5rem;">🛠 自定义提示</h3>
+                <p>• 修改导航链接</p>
+                <p>• 更新标题和描述</p>
+                <p>• 添加自己的CSS样式</p>
+            </div>
+        </aside>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 我的GitHub网站 | 使用 GitHub Pages 托管</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            页面最后更新于: <span id="last-updated"></span>
+        </p>
+    </footer>
+    
+    <!-- 简单的JS脚本 -->
+    <script>
+        // 自动显示最后修改日期
+        document.getElementById('last-updated').textContent = 
+            new Date(document.lastModified).toLocaleDateString('zh-CN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
